@@ -123,7 +123,6 @@
     }
     
     if (string.length >= trueLength) {
-        NSLog(@"The string provided \"%@\" has already a length of (%d) and does not need to be filled with zeroes (0).", string, string.length);
         return string;
     }
     
@@ -164,7 +163,6 @@
     }
     
     if (string.length >= trueLength) {
-        NSLog(@"The string provided \"%@\" has a length of (%d) and cannot be / does not need to be filled with blank spaces.", string, string.length);
         return string;
     }
     

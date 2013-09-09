@@ -16,10 +16,48 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    ISOMessage *isoMessage = [[ISOMessage alloc] initWithIsoMessage:@"0200B2200000001000000000000000800000000123000000000123000000012300012303123040This is a varible length value for DE105"];
+    // Example of usage #1
+    NSLog(@"***EXAMPLE OF USAGE #1***");
     
-    for (id dataElement in isoMessage.dataElements) {
-        NSLog(@"%@:%@", dataElement, ((ISODataElement *)[isoMessage.dataElements objectForKey:dataElement]).value);
+    ISOMessage *isoMessage1 = [[ISOMessage alloc] init];
+    [isoMessage1 setMTI:@"0200"];
+    // Declares the presence of a secondary bitmap and data elements: 3, 4, 7, 11, 44, 105
+    isoMessage1.bitmap = [[ISOBitmap alloc] initWithHexString:@"B2200000001000000000000000800000"];
+    
+    [isoMessage1 addDataElement:@"DE03" withValue:@"123"];
+    [isoMessage1 addDataElement:@"DE04" withValue:@"123"];
+    [isoMessage1 addDataElement:@"DE07" withValue:@"123"];
+    [isoMessage1 addDataElement:@"DE11" withValue:@"123"];
+    [isoMessage1 addDataElement:@"DE44" withValue:@"Value for DE44"];
+    [isoMessage1 addDataElement:@"DE105" withValue:@"This is the value for DE105"];
+    
+    NSString *theBuiltMessage = [isoMessage1 buildIsoMessage];
+    NSLog(@"Built message:\n%@", theBuiltMessage);
+    
+    // Example of usage #2
+    NSLog(@"***EXAMPLE OF USAGE #2***");
+    
+    ISOMessage *isoMessage2 = [[ISOMessage alloc] initWithIsoMessage:@"0200B2200000001000000000000000800000000123000000000123000000012300012314Value for DE44027This is the value for DE105"];
+    
+    for (id elementName in isoMessage2.dataElements) {
+        if ([elementName isEqualToString:@"DE01"]) {
+            continue;
+        }
+        
+        NSLog(@"%@:%@", elementName, ((ISODataElement *)[isoMessage2.dataElements objectForKey:elementName]).value);
+    }
+    
+    // Example of usage #3
+    NSLog(@"***EXAMPLE OF USAGE #3***");
+    
+    ISOMessage *isoMessage3 = [[ISOMessage alloc] initWithIsoMessageAndHeader:@"ISO0200B2200000001000000000000000800000000123000000000123000000012300012314Value for DE44027This is the value for DE105"];
+    
+    for (id elementName in isoMessage3.dataElements) {
+        if ([elementName isEqualToString:@"DE01"]) {
+            continue;
+        }
+        
+        NSLog(@"%@:%@", elementName, ((ISODataElement *)[isoMessage3.dataElements objectForKey:elementName]).value);
     }
     
     return YES;
