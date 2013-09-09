@@ -12,7 +12,7 @@ Be sure to select the following options when adding:
 - Add to targets "Your Target Name"
 - Import the necessary classes in your code i.e. #import "ISOMessage.h"
 
-Be sure to contact me for help using the library
+Be sure to contact me for help using the library, and of course, report any issues/bugs you find.
 
 Example of usage 1
 --------------
