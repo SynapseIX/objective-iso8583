@@ -10,4 +10,7 @@
 
 @interface ViewController : UIViewController
 
+- (IBAction)mindshakeAction:(id)sender;
+- (IBAction)githubAction:(id)sender;
+
 @end

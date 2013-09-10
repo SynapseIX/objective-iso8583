@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		CF2228F617DE3956001667B8 /* isodatatypes.plist in Resources */ = {isa = PBXBuildFile; fileRef = CF2228F517DE3956001667B8 /* isodatatypes.plist */; };
+		CF41A07817DE934200A48CF0 /* mindshake.png in Resources */ = {isa = PBXBuildFile; fileRef = CF41A07717DE934200A48CF0 /* mindshake.png */; };
+		CF41A07A17DE962B00A48CF0 /* github.png in Resources */ = {isa = PBXBuildFile; fileRef = CF41A07917DE962B00A48CF0 /* github.png */; };
+		CF41A07C17DE97F300A48CF0 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = CF41A07B17DE97F300A48CF0 /* icon.png */; };
+		CF41A07E17DE97F600A48CF0 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CF41A07D17DE97F600A48CF0 /* icon@2x.png */; };
 		CF7B860017CFBC3E00C4913B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF7B85FF17CFBC3E00C4913B /* UIKit.framework */; };
 		CF7B860217CFBC3E00C4913B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF7B860117CFBC3E00C4913B /* Foundation.framework */; };
 		CF7B860417CFBC3E00C4913B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF7B860317CFBC3E00C4913B /* CoreGraphics.framework */; };
@@ -29,6 +33,10 @@
 
 /* Begin PBXFileReference section */
 		CF2228F517DE3956001667B8 /* isodatatypes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = isodatatypes.plist; sourceTree = "<group>"; };
+		CF41A07717DE934200A48CF0 /* mindshake.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mindshake.png; sourceTree = "<group>"; };
+		CF41A07917DE962B00A48CF0 /* github.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = github.png; sourceTree = "<group>"; };
+		CF41A07B17DE97F300A48CF0 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = ../icon.png; sourceTree = "<group>"; };
+		CF41A07D17DE97F600A48CF0 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon@2x.png"; path = "../icon@2x.png"; sourceTree = "<group>"; };
 		CF7B85FC17CFBC3E00C4913B /* Objective-ISO8583.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Objective-ISO8583.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF7B85FF17CFBC3E00C4913B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CF7B860117CFBC3E00C4913B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -115,6 +123,7 @@
 		CF7B860617CFBC3E00C4913B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				CF41A07917DE962B00A48CF0 /* github.png */,
 				CF7B860717CFBC3E00C4913B /* Objective-ISO8583-Info.plist */,
 				CF7B860817CFBC3E00C4913B /* InfoPlist.strings */,
 				CF7B860B17CFBC3E00C4913B /* main.m */,
@@ -122,6 +131,9 @@
 				CF7B861117CFBC3E00C4913B /* Default.png */,
 				CF7B861317CFBC3E00C4913B /* Default@2x.png */,
 				CF7B861517CFBC3E00C4913B /* Default-568h@2x.png */,
+				CF41A07B17DE97F300A48CF0 /* icon.png */,
+				CF41A07D17DE97F600A48CF0 /* icon@2x.png */,
+				CF41A07717DE934200A48CF0 /* mindshake.png */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -203,6 +215,10 @@
 				CFF8497717D8F2E2006245BD /* isoconfig.plist in Resources */,
 				CFF8497B17D8F2E2006245BD /* isoMTI.plist in Resources */,
 				CF2228F617DE3956001667B8 /* isodatatypes.plist in Resources */,
+				CF41A07817DE934200A48CF0 /* mindshake.png in Resources */,
+				CF41A07A17DE962B00A48CF0 /* github.png in Resources */,
+				CF41A07C17DE97F300A48CF0 /* icon.png in Resources */,
+				CF41A07E17DE97F600A48CF0 /* icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
