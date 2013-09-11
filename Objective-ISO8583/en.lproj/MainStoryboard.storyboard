@@ -29,8 +29,8 @@
                                     <action selector="mindshakeAction:" destination="2" eventType="touchUpInside" id="zfg-KF-gcR"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="J3f-tz-jGT">
-                                <string key="text">Thank you very much for using Objective-ISO8583. An open-source project made by Jorge Tapia and released under the MIT license. Please check the usage examples in the AppDelegate.m file and watch you console log.</string>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="281" translatesAutoresizingMaskIntoConstraints="NO" id="J3f-tz-jGT">
+                                <string key="text">Thank you very much for using Objective-ISO8583. An open-source project made by Jorge Tapia and released under the MIT license. Please check the usage examples in the AppDelegate.m file and watch your console log.</string>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -56,7 +56,6 @@
                         <constraints>
                             <constraint firstItem="J3f-tz-jGT" firstAttribute="centerY" secondItem="3" secondAttribute="centerY" type="default" id="B36-2K-r7a"/>
                             <constraint firstItem="TdX-Un-EhK" firstAttribute="top" secondItem="J3f-tz-jGT" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Vq8-nC-K50"/>
-                            <constraint firstAttribute="trailing" secondItem="J3f-tz-jGT" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="eBw-8B-sNv"/>
                             <constraint firstItem="J3f-tz-jGT" firstAttribute="top" secondItem="zRD-Fe-bBU" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="f0s-Ip-exX"/>
                             <constraint firstItem="zRD-Fe-bBU" firstAttribute="centerX" secondItem="J3f-tz-jGT" secondAttribute="centerX" type="default" id="fP1-CD-HRg"/>
                             <constraint firstItem="zRD-Fe-bBU" firstAttribute="top" secondItem="3" secondAttribute="top" constant="20" symbolic="YES" type="default" id="hIX-1e-lWp"/>
