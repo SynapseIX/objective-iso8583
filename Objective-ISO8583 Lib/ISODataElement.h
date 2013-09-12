@@ -17,6 +17,6 @@
 @property (readonly) NSString *dataType;
 @property (readonly) NSString *length;
 
-- (id)initWithName:(NSString *)name value:(NSString *)value dataType:(NSString *)dataType length:(NSString *)length;
+- (id)initWithName:(NSString *)name value:(NSString *)value dataType:(NSString *)dataType length:(NSString *)length customConfigFileName:(NSString *)customConfigFileName;
 
 @end

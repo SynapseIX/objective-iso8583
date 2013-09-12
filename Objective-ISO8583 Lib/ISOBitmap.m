@@ -85,16 +85,27 @@
     return !_isBinary ? _rawValue : [ISOHelper binaryToHexAsString:_rawValue];
 }
 
-- (NSArray *)dataElementsInBitmap {
-    NSString *pathToConfigFile = [[NSBundle mainBundle] pathForResource:@"isoconfig" ofType:@"plist"];
+- (NSArray *)dataElementsInBitmap:(NSString *)customConfigFileName {
+    NSString *pathToConfigFile = !customConfigFileName ? [[NSBundle mainBundle] pathForResource:@"isoconfig" ofType:@"plist"] : [[NSBundle mainBundle] pathForResource:customConfigFileName ofType:@"plist"];
     NSDictionary *dataElementsScheme = [NSDictionary dictionaryWithContentsOfFile:pathToConfigFile];
     NSMutableArray *dataElements = [[NSMutableArray alloc] initWithCapacity:_binaryBitmap.count];
     
     for (int i=0; i < _binaryBitmap.count; i++) {
         NSString *bit  = [NSString stringWithFormat:@"%@", _binaryBitmap[i]];
+        
         if ([bit isEqualToString:@"1"]) {
             NSString *index = [NSString stringWithFormat:@"%d", i];
-            NSString *key = index.length == 1 ? [NSString stringWithFormat:@"DE0%d", i + 1] : [NSString stringWithFormat:@"DE%d", i + 1];
+            NSString *key = nil;
+            
+            if (!customConfigFileName) {
+                key = index.length == 1 ? [NSString stringWithFormat:@"DE0%d", i + 1] : [NSString stringWithFormat:@"DE%d", i + 1];
+            } else {
+                NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:nil ascending:YES comparator:^(id obj1, id obj2) { return [obj1 compare:obj2 options:NSNumericSearch]; }];
+                NSArray *sortedKeys = [dataElementsScheme.allKeys sortedArrayUsingDescriptors:[NSArray arrayWithObject:descriptor]];
+                key = sortedKeys[i];
+            }
+            
+            
             if ([dataElementsScheme objectForKey:key]) {
                 [dataElements addObject:key];
             }

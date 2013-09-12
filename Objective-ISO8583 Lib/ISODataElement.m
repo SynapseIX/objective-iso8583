@@ -11,7 +11,7 @@
 
 @implementation ISODataElement
 
-- (id)initWithName:(NSString *)name value:(NSString *)value dataType:(NSString *)dataType length:(NSString *)length {
+- (id)initWithName:(NSString *)name value:(NSString *)value dataType:(NSString *)dataType length:(NSString *)length customConfigFileName:(NSString *)customConfigFileName {
     self = [super init];
     
     if (self) {
@@ -33,7 +33,7 @@
             return nil;
         }
         
-        NSString *pathToConfigFile = [[NSBundle mainBundle] pathForResource:@"isoconfig" ofType:@"plist"];
+        NSString *pathToConfigFile = !customConfigFileName ? [[NSBundle mainBundle] pathForResource:@"isoconfig" ofType:@"plist"] : [[NSBundle mainBundle] pathForResource:customConfigFileName ofType:@"plist"];
         NSDictionary *dataElementsScheme = [NSDictionary dictionaryWithContentsOfFile:pathToConfigFile];
         
         if ([dataElementsScheme objectForKey:name]) {
@@ -114,7 +114,7 @@
             
             return self;
         } else {
-            NSLog(@"Cannot add %@ because it is not a valid data element defined in the ISO8583 standard or in the isoconfig.plist file. Please visit http://en.wikipedia.org/wiki/ISO_8583#Data_elements to learn more about data elements.", name);
+            NSLog(@"Cannot add %@ because it is not a valid data element defined in the ISO8583 standard or in the isoconfig.plist file or in your custom config file. Please visit http://en.wikipedia.org/wiki/ISO_8583#Data_elements to learn more about data elements.", name);
             return nil;
         }
     }

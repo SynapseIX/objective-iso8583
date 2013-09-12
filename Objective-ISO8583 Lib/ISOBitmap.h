@@ -19,6 +19,6 @@
 - (id)initWithHexString:(NSString *)hexString;
 - (NSString *)bitmapAsBinaryString;
 - (NSString *)bitmapAsHexString;
-- (NSArray *)dataElementsInBitmap;
+- (NSArray *)dataElementsInBitmap:(NSString *)customConfigFileName;
 
 @end
