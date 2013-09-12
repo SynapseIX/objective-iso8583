@@ -13,30 +13,37 @@ Be sure to select the following options when adding:
 - Import the necessary classes in your code i.e. #import "ISOMessage.h"
 
 Be sure to contact me for help using the library, and of course, report any issues/bugs you find.
+Now you can build your own custom ISO8583-formatted messages, include your custom config and MTIs plist files and you're good to go. Sample custom files and usage examples are also included.
 
 Example of usage 1
 --------------
 
-	ISOMessage *isoMessage = [[ISOMessage alloc] init];
-	[isoMessage setMTI:@"0200"];
-	isoMessage.bitmap = [[ISOBitmap alloc] initWithHexString:@"B2200000001000000000000000800000"];
+	ISOMessage *isoMessage1 = [[ISOMessage alloc] init];
+	[isoMessage1 setMTI:@"0200"];
+	// Declares the presence of a secondary bitmap and data elements: 3, 4, 7, 11, 44, 105
+	isoMessage1.bitmap = [[ISOBitmap alloc] initWithHexString:@"B2200000001000000000000000800000"];
 	
-	[isoMessage addDataElement:@"DE03" withValue:@"123"];
-	[isoMessage addDataElement:@"DE04" withValue:@"123"];
-	[isoMessage addDataElement:@"DE07" withValue:@"123"];
-	[isoMessage addDataElement:@"DE11" withValue:@"123"];
-	[isoMessage addDataElement:@"DE44" withValue:@"123"];
-	[isoMessage addDataElement:@"DE105" withValue:@"This is a varible length value for DE105"];
+	[isoMessage1 addDataElement:@"DE03" withValue:@"123" configFileName:nil];
+	[isoMessage1 addDataElement:@"DE04" withValue:@"123" configFileName:nil];
+	[isoMessage1 addDataElement:@"DE07" withValue:@"123" configFileName:nil];
+	[isoMessage1 addDataElement:@"DE11" withValue:@"123" configFileName:nil];
+	[isoMessage1 addDataElement:@"DE44" withValue:@"Value for DE44" configFileName:nil];
+	[isoMessage1 addDataElement:@"DE105" withValue:@"This is the value for DE105" configFileName:nil];
 	
-	NSString *builtMessage = [isoMessage buildIsoMessage];
-	NSLog(@"Message: %@", builtMessage);
+	NSString *theBuiltMessage = [isoMessage1 buildIsoMessage:nil];
+	NSLog(@"Built message:\n%@", theBuiltMessage);
 	
 Example of usage 2
 --------------
 
-	ISOMessage *isoMessage = [[ISOMessage alloc] initWithIsoMessage:
-		@"0200B2200000001000000000000000800000000123000000000123000000012300012303123040This is a varible length value for DE105"];
+	ISOMessage *isoMessage2 = [[ISOMessage alloc] initWithIsoMessage:@"0200B2200000001000000000000000800000000123000000000123000000012300012314Value for DE44027This is the value for DE105"];
 	
-	for (id dataElement in isoMessage.dataElements) {
-		NSLog(@"%@:%@", dataElement, ((ISODataElement *)[isoMessage.dataElements objectForKey:dataElement]).value);
+	for (id elementName in isoMessage2.dataElements) {
+		if ([elementName isEqualToString:@"DE01"]) {
+			continue;
+		}
+		
+		NSLog(@"%@:%@", elementName, ((ISODataElement *)[isoMessage2.dataElements objectForKey:elementName]).value);
 	}
+
+More examples of usage are included in the code.
