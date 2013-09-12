@@ -11,8 +11,8 @@
 #import "ISOHelper.h"
 
 @interface ISOMessage()
-    @property (strong, nonatomic) NSDictionary *dataElementsScheme;
-    @property (strong, nonatomic) NSArray *validMTIs;
+@property (strong, nonatomic) NSDictionary *dataElementsScheme;
+@property (strong, nonatomic) NSArray *validMTIs;
 @end
 
 @implementation ISOMessage
@@ -144,9 +144,13 @@
         }
         
         [self setMTI:[customIsoMessage substringToIndex:4]];
-        _hasSecondaryBitmap = NO;
         
-        _bitmap = [[ISOBitmap alloc] initWithHexString:[[customIsoMessage substringFromIndex:4] substringToIndex:16]];
+        NSString *bitmapFirstBit = [[customIsoMessage substringFromIndex:4] substringToIndex:1];
+        
+        _hasSecondaryBitmap = [bitmapFirstBit isEqualToString:@"8"] || [bitmapFirstBit isEqualToString:@"9"] || [bitmapFirstBit isEqualToString:@"A"] || [bitmapFirstBit isEqualToString:@"B"] || [bitmapFirstBit isEqualToString:@"C"] || [bitmapFirstBit isEqualToString:@"D"] || [bitmapFirstBit isEqualToString:@"E"] || [bitmapFirstBit isEqualToString:@"F"];
+        
+        
+        _bitmap = _hasSecondaryBitmap ? [[ISOBitmap alloc] initWithHexString:[[customIsoMessage substringFromIndex:4] substringToIndex:32]] : [[ISOBitmap alloc] initWithHexString:[[customIsoMessage substringFromIndex:4] substringToIndex:16]];
         
         NSString *dataElementValues = [customIsoMessage substringFromIndex:20];
         NSArray *theValues = [self extractDataElementValuesFromIsoString:dataElementValues withDataElements:[_bitmap dataElementsInBitmap:configFileName]];
@@ -199,9 +203,13 @@
         }
         
         [self setMTI:[[customIsoMessage substringFromIndex:3] substringToIndex:4]];
-        _hasSecondaryBitmap = NO;
         
-        _bitmap = [[ISOBitmap alloc] initWithHexString:[[customIsoMessage substringFromIndex:7] substringToIndex:16]];
+        NSString *bitmapFirstBit = [[customIsoMessage substringFromIndex:7] substringToIndex:1];
+        
+        _hasSecondaryBitmap = [bitmapFirstBit isEqualToString:@"8"] || [bitmapFirstBit isEqualToString:@"9"] || [bitmapFirstBit isEqualToString:@"A"] || [bitmapFirstBit isEqualToString:@"B"] || [bitmapFirstBit isEqualToString:@"C"] || [bitmapFirstBit isEqualToString:@"D"] || [bitmapFirstBit isEqualToString:@"E"] || [bitmapFirstBit isEqualToString:@"F"];
+        
+        
+        _bitmap = _hasSecondaryBitmap ? [[ISOBitmap alloc] initWithHexString:[[customIsoMessage substringFromIndex:7] substringToIndex:32]] : [[ISOBitmap alloc] initWithHexString:[[customIsoMessage substringFromIndex:7] substringToIndex:16]];
         
         NSString *dataElementValues = [customIsoMessage substringFromIndex:23];
         NSArray *theValues = [self extractDataElementValuesFromIsoString:dataElementValues withDataElements:[_bitmap dataElementsInBitmap:configFileName]];
