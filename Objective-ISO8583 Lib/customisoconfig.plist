@@ -91,7 +91,7 @@
 		<key>Type</key>
 		<string>ans</string>
 		<key>Length</key>
-		<string>...999</string>
+		<string>..99</string>
 	</dict>
 	<key>DE127_14</key>
 	<dict>
@@ -152,7 +152,7 @@
 	<key>DE127_22</key>
 	<dict>
 		<key>Type</key>
-		<string>an</string>
+		<string>n</string>
 		<key>Length</key>
 		<string>8</string>
 	</dict>
