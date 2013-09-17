@@ -144,19 +144,7 @@
     }
     
     if ([dataType isEqualToString:@"n"]) {
-        NSString *regExPattern = @"[0-9]";
-        NSRegularExpression *regEx = [[NSRegularExpression alloc] initWithPattern:regExPattern options:0 error:nil];
-        NSUInteger regExMatches = [regEx numberOfMatchesInString:value options:0 range:NSMakeRange(0, value.length)];
-        
-        if (regExMatches != value.length) {
-            return NO;
-        } else {
-            return YES;
-        }
-    }
-    
-    if ([dataType isEqualToString:@"a"]) {
-        NSString *regExPattern = @"[A-Za-z\\s]";
+        NSString *regExPattern = @"[0-9\\.]";
         NSRegularExpression *regEx = [[NSRegularExpression alloc] initWithPattern:regExPattern options:0 error:nil];
         NSUInteger regExMatches = [regEx numberOfMatchesInString:value options:0 range:NSMakeRange(0, value.length)];
         
@@ -180,7 +168,7 @@
     }
     
     if ([dataType isEqualToString:@"an"]) {
-        NSString *regExPattern = @"[A-Za-z0-9\\s]";
+        NSString *regExPattern = @"[A-Za-z0-9\\s\\.]";
         NSRegularExpression *regEx = [[NSRegularExpression alloc] initWithPattern:regExPattern options:0 error:nil];
         NSUInteger regExMatches = [regEx numberOfMatchesInString:value options:0 range:NSMakeRange(0, value.length)];
         

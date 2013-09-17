@@ -287,7 +287,7 @@
 		<key>Type</key>
 		<string>ans</string>
 		<key>Length</key>
-		<string>16</string>
+		<string>8</string>
 	</dict>
 	<key>DE42</key>
 	<dict>
@@ -301,7 +301,7 @@
 		<key>Type</key>
 		<string>ans</string>
 		<key>Length</key>
-		<string>40</string>
+		<string>43</string>
 	</dict>
 	<key>DE44</key>
 	<dict>
@@ -320,14 +320,14 @@
 	<key>DE46</key>
 	<dict>
 		<key>Type</key>
-		<string>an</string>
+		<string>ans</string>
 		<key>Length</key>
 		<string>...999</string>
 	</dict>
 	<key>DE47</key>
 	<dict>
 		<key>Type</key>
-		<string>an</string>
+		<string>ans</string>
 		<key>Length</key>
 		<string>...999</string>
 	</dict>
@@ -362,9 +362,9 @@
 	<key>DE52</key>
 	<dict>
 		<key>Type</key>
-		<string>b</string>
+		<string>an</string>
 		<key>Length</key>
-		<string>64</string>
+		<string>16</string>
 	</dict>
 	<key>DE53</key>
 	<dict>
@@ -418,9 +418,9 @@
 	<key>DE60</key>
 	<dict>
 		<key>Type</key>
-		<string>an</string>
+		<string>ans</string>
 		<key>Length</key>
-		<string>.7</string>
+		<string>...999</string>
 	</dict>
 	<key>DE61</key>
 	<dict>
@@ -446,7 +446,7 @@
 	<key>DE64</key>
 	<dict>
 		<key>Type</key>
-		<string>b</string>
+		<string>an</string>
 		<key>Length</key>
 		<string>16</string>
 	</dict>
@@ -894,9 +894,9 @@
 	<key>DE128</key>
 	<dict>
 		<key>Type</key>
-		<string>b</string>
+		<string>an</string>
 		<key>Length</key>
-		<string>16</string>
+		<string>64</string>
 	</dict>
 </dict>
 </plist>
