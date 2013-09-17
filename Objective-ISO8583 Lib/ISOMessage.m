@@ -59,13 +59,15 @@
         NSString *dataElementValues = _hasSecondaryBitmap ? [isoMessage substringFromIndex:36] : [isoMessage substringFromIndex:20];
         NSArray *theValues = [self extractDataElementValuesFromIsoString:dataElementValues withDataElements:[_bitmap dataElementsInBitmap:nil]];
         
-        NSLog(@"MTI:%@", _mti);
-        NSLog(@"Bitmap:%@", _bitmap.rawValue);
         for (int i = 1; i < [_bitmap dataElementsInBitmap:nil].count; i++) {
             [self addDataElement:[_bitmap dataElementsInBitmap:nil][i] withValue:theValues[i - 1] configFileName:nil];
         }
         
         _usesCustomConfiguration = NO;
+        
+        NSLog(@"MTI:%@", _mti);
+        NSLog(@"Bitmap:%@", _bitmap.rawValue);
+        NSLog(@"Data:%@", dataElementValues);
     }
     
     return self;
@@ -96,13 +98,15 @@
         NSString *dataElementValues = _hasSecondaryBitmap ? [isoMessage substringFromIndex:39] : [isoMessage substringFromIndex:23];
         NSArray *theValues = [self extractDataElementValuesFromIsoString:dataElementValues withDataElements:[_bitmap dataElementsInBitmap:nil]];
         
-        NSLog(@"MTI:%@", _mti);
-        NSLog(@"Bitmap:%@", _bitmap.rawValue);
         for (int i = 1; i < [_bitmap dataElementsInBitmap:nil].count; i++) {
             [self addDataElement:[_bitmap dataElementsInBitmap:nil][i] withValue:theValues[i - 1] configFileName:nil];
         }
         
         _usesCustomConfiguration = NO;
+        
+        NSLog(@"MTI:%@", _mti);
+        NSLog(@"Bitmap:%@", _bitmap.rawValue);
+        NSLog(@"Data:%@", dataElementValues);
     }
     
     return self;
@@ -155,13 +159,15 @@
         NSString *dataElementValues = [customIsoMessage substringFromIndex:20];
         NSArray *theValues = [self extractDataElementValuesFromIsoString:dataElementValues withDataElements:[_bitmap dataElementsInBitmap:configFileName]];
         
-        NSLog(@"MTI:%@", _mti);
-        NSLog(@"Bitmap:%@", _bitmap.rawValue);
         for (int i = 0; i < [_bitmap dataElementsInBitmap:configFileName].count; i++) {
             [self addDataElement:[_bitmap dataElementsInBitmap:configFileName][i] withValue:theValues[i] configFileName:configFileName];
         }
         
         _usesCustomConfiguration = YES;
+        
+        NSLog(@"MTI:%@", _mti);
+        NSLog(@"Bitmap:%@", _bitmap.rawValue);
+        NSLog(@"Data:%@", dataElementValues);
     }
     
     return self;
@@ -214,13 +220,15 @@
         NSString *dataElementValues = [customIsoMessage substringFromIndex:23];
         NSArray *theValues = [self extractDataElementValuesFromIsoString:dataElementValues withDataElements:[_bitmap dataElementsInBitmap:configFileName]];
         
-        NSLog(@"MTI:%@", _mti);
-        NSLog(@"Bitmap:%@", _bitmap.rawValue);
         for (int i = 0; i < [_bitmap dataElementsInBitmap:configFileName].count; i++) {
             [self addDataElement:[_bitmap dataElementsInBitmap:configFileName][i] withValue:theValues[i] configFileName:configFileName];
         }
         
         _usesCustomConfiguration = YES;
+        
+        NSLog(@"MTI:%@", _mti);
+        NSLog(@"Bitmap:%@", _bitmap.rawValue);
+        NSLog(@"Data:%@", dataElementValues);
     }
     
     return self;
