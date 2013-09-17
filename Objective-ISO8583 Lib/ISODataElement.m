@@ -122,6 +122,31 @@
     return nil;
 }
 
+- (NSString *)cleanValue {
+    NSString *cleanValue = nil;
+    
+    if ([_length rangeOfString:@"."].location != NSNotFound) {
+        if (_length.length == 2) {
+            cleanValue = [_value substringFromIndex:1];
+        } else if (_length.length == 4) {
+            cleanValue = [_value substringFromIndex:2];
+        } else if (_length.length == 6) {
+            cleanValue = [_value substringFromIndex:3];
+        }
+    } else {
+        if ([_dataType isEqualToString:@"an"] || [_dataType isEqualToString:@"ans"]) {
+            return [_value stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+        } else if ([_dataType isEqualToString:@"n"]) {
+            double number = [_value doubleValue];
+            cleanValue = [NSString stringWithFormat:@"%f", number];
+        } else {
+            cleanValue = _value;
+        }
+    }
+    
+    return cleanValue;
+}
+
 - (BOOL) isValidDataType:(NSString *)dataType {
     NSString *pathToDataTypeConfigFile = [[NSBundle mainBundle] pathForResource:@"isodatatypes" ofType:@"plist"];
     NSArray *validDataTypes = [NSArray arrayWithContentsOfFile:pathToDataTypeConfigFile];

@@ -19,4 +19,6 @@
 
 - (id)initWithName:(NSString *)name value:(NSString *)value dataType:(NSString *)dataType length:(NSString *)length customConfigFileName:(NSString *)customConfigFileName;
 
+- (NSString *)cleanValue;
+
 @end
