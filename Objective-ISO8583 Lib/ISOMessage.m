@@ -26,7 +26,7 @@
         _dataElements = [NSMutableDictionary dictionaryWithCapacity:[_dataElementsScheme count]];
         
         NSString *pathToMTIConfigFile = [[NSBundle mainBundle] pathForResource:@"isoMTI" ofType:@"plist"];
-        _validMTIs = [NSDictionary dictionaryWithContentsOfFile:pathToMTIConfigFile];
+        _validMTIs = [NSArray arrayWithContentsOfFile:pathToMTIConfigFile];
         
         _usesCustomConfiguration = NO;
     }
@@ -141,10 +141,10 @@
         
         if (!customMTIFileName) {
             NSString *pathToMTIConfigFile = [[NSBundle mainBundle] pathForResource:@"isoMTI" ofType:@"plist"];
-            _validMTIs = [NSDictionary dictionaryWithContentsOfFile:pathToMTIConfigFile];
+            _validMTIs = [NSArray arrayWithContentsOfFile:pathToMTIConfigFile];
         } else {
             NSString *pathToMTIConfigFile = [[NSBundle mainBundle] pathForResource:customMTIFileName ofType:@"plist"];
-            _validMTIs = [NSDictionary dictionaryWithContentsOfFile:pathToMTIConfigFile];
+            _validMTIs = [NSArray arrayWithContentsOfFile:pathToMTIConfigFile];
         }
         
         [self setMTI:[customIsoMessage substringToIndex:4]];
@@ -202,14 +202,14 @@
         
         if (!customMTIFileName) {
             NSString *pathToMTIConfigFile = [[NSBundle mainBundle] pathForResource:@"isoMTI" ofType:@"plist"];
-            _validMTIs = [NSDictionary dictionaryWithContentsOfFile:pathToMTIConfigFile];
+            _validMTIs = [NSArray arrayWithContentsOfFile:pathToMTIConfigFile];
         } else {
             NSString *pathToMTIConfigFile = [[NSBundle mainBundle] pathForResource:customMTIFileName ofType:@"plist"];
-            _validMTIs = [NSDictionary dictionaryWithContentsOfFile:pathToMTIConfigFile];
+            _validMTIs = [NSArray arrayWithContentsOfFile:pathToMTIConfigFile];
         }
-        
+
         [self setMTI:[[customIsoMessage substringFromIndex:3] substringToIndex:4]];
-        
+
         NSString *bitmapFirstBit = [[customIsoMessage substringFromIndex:7] substringToIndex:1];
         
         _hasSecondaryBitmap = [bitmapFirstBit isEqualToString:@"8"] || [bitmapFirstBit isEqualToString:@"9"] || [bitmapFirstBit isEqualToString:@"A"] || [bitmapFirstBit isEqualToString:@"B"] || [bitmapFirstBit isEqualToString:@"C"] || [bitmapFirstBit isEqualToString:@"D"] || [bitmapFirstBit isEqualToString:@"E"] || [bitmapFirstBit isEqualToString:@"F"];
@@ -255,7 +255,7 @@
     _usesCustomConfiguration = YES;
     
     NSString *pathToMTIConfigFile = [[NSBundle mainBundle] pathForResource:customMTIFileName ofType:@"plist"];
-    _validMTIs = [NSDictionary dictionaryWithContentsOfFile:pathToMTIConfigFile];
+    _validMTIs = [NSArray arrayWithContentsOfFile:pathToMTIConfigFile];
     
     return YES;
 }
@@ -300,6 +300,11 @@
     } else {
         // Intermediate
         dataElementNumber = [elementName substringFromIndex:[elementName rangeOfString:@"_"].location + 1];
+    }
+
+    if (([dataElementNumber intValue] - 1) > 63 && !_bitmap.hasSecondaryBitmap) {
+        NSLog(@"Cannot add %@ because a secondary bitmap is not declared.", elementName);
+        return NO;
     }
     
     int dataElementIndex = [dataElementNumber intValue] - 1;

@@ -156,5 +156,12 @@
 		<key>Length</key>
 		<string>8</string>
 	</dict>
+	<key>DE127_23</key>
+	<dict>
+		<key>Type</key>
+		<string>n</string>
+		<key>Length</key>
+		<string>3</string>
+	</dict>
 </dict>
 </plist>

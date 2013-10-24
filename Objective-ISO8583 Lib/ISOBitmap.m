@@ -77,6 +77,57 @@
     return self;
 }
 
+- (id)initWithGivenDataElements:(NSArray *)dataElements customConfigFileName:(NSString *)customConfigFileName {
+    self = [super init];
+
+    if (self) {
+        _isBinary = YES;
+        NSString *pathToConfigFile = !customConfigFileName ? [[NSBundle mainBundle] pathForResource:@"isoconfig" ofType:@"plist"] : [[NSBundle mainBundle] pathForResource:customConfigFileName ofType:@"plist"];
+        NSDictionary *dataElementsScheme = [NSDictionary dictionaryWithContentsOfFile:pathToConfigFile];
+        NSMutableArray *bitmapTemplate = [[ISOHelper stringToArray:@"00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"] mutableCopy];
+
+        for (id dataElement in dataElements) {
+            if ([dataElement isEqualToString:@"DE01"]) {
+                NSLog(@"You cannot add DE01 explicitly, its value is automatically inferred.");
+                self = nil;
+                return nil;
+            }
+
+            if (![dataElementsScheme objectForKey:dataElement]) {
+                NSLog(@"Cannot add %@ because it is not a valid data element defined in the ISO8583 standard or in the isoconfig.plist file or in your custom config file. Please visit http://en.wikipedia.org/wiki/ISO_8583#Data_elements to learn more about data elements.", dataElement);
+                self = nil;
+                return nil;
+            } else {
+                // mark the data element on the bitmap
+                int indexToUpdate = [[dataElement substringFromIndex:2] intValue] - 1;
+                [bitmapTemplate replaceObjectAtIndex:indexToUpdate withObject:@"1"];
+            }
+        }
+
+        // Check if it has a secondary bitmap (contains DE65...DE128)
+        for (id dataElement in dataElements) {
+            int index = [[dataElement substringFromIndex:2] intValue] - 1;
+
+            if (index > 63) {
+                [bitmapTemplate replaceObjectAtIndex:0 withObject:@"1"];
+                _hasSecondaryBitmap = YES;
+                break;
+            }
+        }
+
+        if (_hasSecondaryBitmap) {
+            _rawValue = [ISOHelper arrayToString:bitmapTemplate];
+            _binaryBitmap = bitmapTemplate;
+        } else {
+            _rawValue =[[ISOHelper arrayToString:bitmapTemplate] substringToIndex:64];
+            _binaryBitmap = [ISOHelper stringToArray:_rawValue];
+        }
+    }
+
+    return self;
+}
+
+
 - (NSString *)bitmapAsBinaryString {
     return _isBinary ? _rawValue : [ISOHelper hexToBinaryAsString:_rawValue];
 }
