@@ -35,12 +35,12 @@
     NSLog(@"Built message:\n%@", theBuiltMessage);
 
     // Example of usage #2
-    NSLog(@"***EXAMPLE OF USAGE #2***");
+    NSLog(@"\n\n***EXAMPLE OF USAGE #2***");
 
     ISOMessage *isoMessage2 = [[ISOMessage alloc] init];
     [isoMessage2 setMTI:@"0200"];
     // Initializes the bitmap with given data elements
-    isoMessage2.bitmap = [[ISOBitmap alloc] initWithGivenDataElements:@[@"DE03", @"DE04", @"DE07", @"DE11", @"DE44", @"DE105"] customConfigFileName:nil];
+    isoMessage2.bitmap = [[ISOBitmap alloc] initWithGivenDataElements:@[@"DE03", @"DE04", @"DE07", @"DE11", @"DE44", @"DE105"] configFileName:nil];
 
     [isoMessage2 addDataElement:@"DE03" withValue:@"123" configFileName:nil];
     [isoMessage2 addDataElement:@"DE04" withValue:@"123" configFileName:nil];
@@ -53,7 +53,7 @@
     NSLog(@"Built message:\n%@", theBuiltMessage2);
 
     // Example of usage #3
-    NSLog(@"***EXAMPLE OF USAGE #3***");
+    NSLog(@"\n\n***EXAMPLE OF USAGE #3***");
     
     ISOMessage *isoMessage3 = [[ISOMessage alloc] initWithIsoMessage:@"0200B2200000001000000000000000800000000123000000000123000000012300012314Value for DE44027This is the value for DE105"];
     
@@ -66,7 +66,7 @@
     }
     
     // Example of usage #4
-    NSLog(@"***EXAMPLE OF USAGE #4***");
+    NSLog(@"\n\n***EXAMPLE OF USAGE #4***");
     
     ISOMessage *isoMessage4 = [[ISOMessage alloc] initWithIsoMessageAndHeader:@"ISO0200B2200000001000000000000000800000000123000000000123000000012300012314Value for DE44027This is the value for DE105"];
     
@@ -79,7 +79,7 @@
     }
     
     // Example of usage #5
-    NSLog(@"***EXAMPLE OF USAGE #5 CUSTOM ISO MESSAGES***");
+    NSLog(@"\n\n***EXAMPLE OF USAGE #5 CUSTOM ISO MESSAGES***");
     
     ISOMessage *isoMessage5 = [[ISOMessage alloc] init];
     [isoMessage5 useCustomConfigurationFile:@"customisoconfig" andCustomMTIFileName:@"customisoMTI"];
@@ -96,7 +96,7 @@
     NSLog(@"Built message with ISO header:\n%@", theBuiltMessageWithHeader5);
     
     // Example of usage #6
-    NSLog(@"***EXAMPLE OF USAGE #6 CUSTOM ISO MESSAGES***");
+    NSLog(@"\n\n***EXAMPLE OF USAGE #6 CUSTOM ISO MESSAGES***");
     
     ISOMessage *isoMessage6 = [[ISOMessage alloc] initWithCustomIsoMessage:@"012703000800000000000501000000000000001000001" configFileName:@"customisoconfig" customMTIFileName:@"customisoMTI"];
     
@@ -105,7 +105,7 @@
     }
     
     // Example of usage #7
-    NSLog(@"***EXAMPLE OF USAGE #7 CUSTOM ISO MESSAGES***");
+    NSLog(@"\n\n***EXAMPLE OF USAGE #7 CUSTOM ISO MESSAGES***");
     
     ISOMessage *isoMessage7 = [[ISOMessage alloc] initWithCustomIsoMessageAndHeader:@"ISO012703000800000000000501000000000000001000001" configFileName:@"customisoconfig" customMTIFileName:@"customisoMTI"];
     

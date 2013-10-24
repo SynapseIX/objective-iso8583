@@ -77,12 +77,12 @@
     return self;
 }
 
-- (id)initWithGivenDataElements:(NSArray *)dataElements customConfigFileName:(NSString *)customConfigFileName {
+- (id)initWithGivenDataElements:(NSArray *)dataElements configFileName:(NSString *)configFileName {
     self = [super init];
 
     if (self) {
         _isBinary = YES;
-        NSString *pathToConfigFile = !customConfigFileName ? [[NSBundle mainBundle] pathForResource:@"isoconfig" ofType:@"plist"] : [[NSBundle mainBundle] pathForResource:customConfigFileName ofType:@"plist"];
+        NSString *pathToConfigFile = !configFileName ? [[NSBundle mainBundle] pathForResource:@"isoconfig" ofType:@"plist"] : [[NSBundle mainBundle] pathForResource:configFileName ofType:@"plist"];
         NSDictionary *dataElementsScheme = [NSDictionary dictionaryWithContentsOfFile:pathToConfigFile];
         NSMutableArray *bitmapTemplate = [[ISOHelper stringToArray:@"00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"] mutableCopy];
 
