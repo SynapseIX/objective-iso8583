@@ -21,7 +21,7 @@ Example of usage 1
 	ISOMessage *isoMessage1 = [[ISOMessage alloc] init];
 	[isoMessage1 setMTI:@"0200"];
 	// Declares the presence of a secondary bitmap and data elements: 3, 4, 7, 11, 44, 105
-	isoMessage1.bitmap = [[ISOBitmap alloc] initWithHexString:@"B2200000001000000000000000800000"];
+	isoMessage1.bitmap = [[ISOBitmap alloc] initWithGivenDataElements:@[@"DE03", "DE04", "DE07", "DE11", "DE44", "DE105"] configFileName:nil];
 	
 	[isoMessage1 addDataElement:@"DE03" withValue:@"123" configFileName:nil];
 	[isoMessage1 addDataElement:@"DE04" withValue:@"123" configFileName:nil];
