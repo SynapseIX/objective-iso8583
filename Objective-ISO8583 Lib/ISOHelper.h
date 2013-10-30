@@ -17,5 +17,6 @@
 + (NSString *)fillStringWithZeroes:(NSString *)string fieldLength:(NSString *)length;
 + (NSString *)fillStringWithBlankSpaces:(NSString *)string fieldLength:(NSString *)length;
 + (NSString *)limitStringWithQuotes:(NSString *)string;
++ (NSString *)trimString:(NSString *)string;
 
 @end

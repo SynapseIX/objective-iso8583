@@ -184,4 +184,9 @@
     return [NSString stringWithFormat:@"\"%@\"", string];
 }
 
++ (NSString *)trimString:(NSString *)string {
+    return [string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+}
+
+
 @end
