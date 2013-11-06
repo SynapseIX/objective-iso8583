@@ -46,4 +46,4 @@ Example of usage 2
 		NSLog(@"%@:%@", elementName, ((ISODataElement *)[isoMessage2.dataElements objectForKey:elementName]).value);
 	}
 
-More examples of usage are included in the code. To build and parse standard ISO-8583 messages, pass 'nil' as argument value for methods that accept 'custonConfig' parameters.
+More examples of usage are included in the code. To build and parse standard ISO-8583 messages, pass 'nil' as argument value for methods that accept 'customConfig' parameters.
