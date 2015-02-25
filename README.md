@@ -21,16 +21,16 @@ Example of usage 1
 	ISOMessage *isoMessage1 = [[ISOMessage alloc] init];
 	[isoMessage1 setMTI:@"0200"];
 	// Declares the presence of a secondary bitmap and data elements: 3, 4, 7, 11, 44, 105
-	isoMessage1.bitmap = [[ISOBitmap alloc] initWithGivenDataElements:@[@"DE03", "DE04", "DE07", "DE11", "DE44", "DE105"] configFileName:nil];
+	isoMessage1.bitmap = [[ISOBitmap alloc] initWithGivenDataElements:@[@"DE03", "DE04", "DE07", "DE11", "DE44", "DE105"]];
 	
-	[isoMessage1 addDataElement:@"DE03" withValue:@"123" configFileName:nil];
-	[isoMessage1 addDataElement:@"DE04" withValue:@"123" configFileName:nil];
-	[isoMessage1 addDataElement:@"DE07" withValue:@"123" configFileName:nil];
-	[isoMessage1 addDataElement:@"DE11" withValue:@"123" configFileName:nil];
-	[isoMessage1 addDataElement:@"DE44" withValue:@"Value for DE44" configFileName:nil];
-	[isoMessage1 addDataElement:@"DE105" withValue:@"This is the value for DE105" configFileName:nil];
+	[isoMessage1 addDataElement:@"DE03" withValue:@"123"];
+	[isoMessage1 addDataElement:@"DE04" withValue:@"123"];
+	[isoMessage1 addDataElement:@"DE07" withValue:@"123"];
+	[isoMessage1 addDataElement:@"DE11" withValue:@"123"];
+	[isoMessage1 addDataElement:@"DE44" withValue:@"Value for DE44"];
+	[isoMessage1 addDataElement:@"DE105" withValue:@"This is the value for DE105"];
 	
-	NSString *theBuiltMessage = [isoMessage1 buildIsoMessage:nil];
+	NSString *theBuiltMessage = [isoMessage1 buildIsoMessage];
 	NSLog(@"Built message:\n%@", theBuiltMessage);
 	
 Example of usage 2
@@ -43,7 +43,8 @@ Example of usage 2
 			continue;
 		}
 		
-		NSLog(@"%@:%@", elementName, ((ISODataElement *)[isoMessage2.dataElements objectForKey:elementName]).value);
+		ISODataElement *dataElement = [isoMessage2.dataElements objectForKey:elementName];
+		NSLog(@"%@:%@", elementName, dataElement.value);
 	}
 
-More examples of usage are included in the code. To build and parse standard ISO-8583 messages, pass 'nil' as argument value for methods that accept 'customConfig' parameters.
+More examples of usage are included in the code. To build and parse custom ISO-8583 messages, use methods that accept an argument value for 'customConfig' parameters.
