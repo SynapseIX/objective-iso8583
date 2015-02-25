@@ -270,6 +270,10 @@
     }
 }
 
+- (BOOL)addDataElement:(NSString *)elementName withValue:(NSString *)value {
+    return [self addDataElement:elementName withValue:value configFileName:nil];
+}
+
 - (BOOL)addDataElement:(NSString *)elementName withValue:(NSString *)value configFileName:(NSString *)configFileName {
     if (!_bitmap) {
         NSLog(@"Cannot add data elements without setting the bitmap before.");
@@ -366,6 +370,10 @@
     }
     
     return nil;
+}
+
+- (NSString *)buildIsoMessage {
+    return [self buildIsoMessage:nil];
 }
 
 - (NSString *)buildIsoMessage:(NSString *)customConfigFileName {

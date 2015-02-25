@@ -77,6 +77,10 @@
     return self;
 }
 
+- (id)initWithGivenDataElements:(NSArray *)dataElements {
+    return [self initWithGivenDataElements:dataElements configFileName:nil];
+}
+
 - (id)initWithGivenDataElements:(NSArray *)dataElements configFileName:(NSString *)configFileName {
     self = [super init];
 
@@ -134,6 +138,10 @@
 
 - (NSString *)bitmapAsHexString {
     return !_isBinary ? _rawValue : [ISOHelper binaryToHexAsString:_rawValue];
+}
+
+- (NSArray *)dataElementsInBitmap {
+    return [self dataElementsInBitmap:nil];
 }
 
 - (NSArray *)dataElementsInBitmap:(NSString *)customConfigFileName {

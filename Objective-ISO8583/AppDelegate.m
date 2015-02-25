@@ -24,14 +24,14 @@
     // Declares the presence of a secondary bitmap and data elements: 3, 4, 7, 11, 44, 105
     isoMessage1.bitmap = [[ISOBitmap alloc] initWithHexString:@"B2200000001000000000000000800000"];
     
-    [isoMessage1 addDataElement:@"DE03" withValue:@"123" configFileName:nil];
-    [isoMessage1 addDataElement:@"DE04" withValue:@"123" configFileName:nil];
-    [isoMessage1 addDataElement:@"DE07" withValue:@"123" configFileName:nil];
-    [isoMessage1 addDataElement:@"DE11" withValue:@"123" configFileName:nil];
-    [isoMessage1 addDataElement:@"DE44" withValue:@"Value for DE44" configFileName:nil];
-    [isoMessage1 addDataElement:@"DE105" withValue:@"This is the value for DE105" configFileName:nil];
+    [isoMessage1 addDataElement:@"DE03" withValue:@"123"];
+    [isoMessage1 addDataElement:@"DE04" withValue:@"123"];
+    [isoMessage1 addDataElement:@"DE07" withValue:@"123"];
+    [isoMessage1 addDataElement:@"DE11" withValue:@"123"];
+    [isoMessage1 addDataElement:@"DE44" withValue:@"Value for DE44"];
+    [isoMessage1 addDataElement:@"DE105" withValue:@"This is the value for DE105"];
     
-    NSString *theBuiltMessage = [isoMessage1 buildIsoMessage:nil];
+    NSString *theBuiltMessage = [isoMessage1 buildIsoMessage];
     NSLog(@"Built message:\n%@", theBuiltMessage);
 
     // Example of usage #2
@@ -40,16 +40,16 @@
     ISOMessage *isoMessage2 = [[ISOMessage alloc] init];
     [isoMessage2 setMTI:@"0200"];
     // Initializes the bitmap with given data elements
-    isoMessage2.bitmap = [[ISOBitmap alloc] initWithGivenDataElements:@[@"DE03", @"DE04", @"DE07", @"DE11", @"DE44", @"DE105"] configFileName:nil];
+    isoMessage2.bitmap = [[ISOBitmap alloc] initWithGivenDataElements:@[@"DE03", @"DE04", @"DE07", @"DE11", @"DE44", @"DE105"]];
 
-    [isoMessage2 addDataElement:@"DE03" withValue:@"123" configFileName:nil];
-    [isoMessage2 addDataElement:@"DE04" withValue:@"123" configFileName:nil];
-    [isoMessage2 addDataElement:@"DE07" withValue:@"123" configFileName:nil];
-    [isoMessage2 addDataElement:@"DE11" withValue:@"123" configFileName:nil];
-    [isoMessage2 addDataElement:@"DE44" withValue:@"Value for DE44" configFileName:nil];
-    [isoMessage2 addDataElement:@"DE105" withValue:@"This is the value for DE105" configFileName:nil];
+    [isoMessage2 addDataElement:@"DE03" withValue:@"123"];
+    [isoMessage2 addDataElement:@"DE04" withValue:@"123"];
+    [isoMessage2 addDataElement:@"DE07" withValue:@"123"];
+    [isoMessage2 addDataElement:@"DE11" withValue:@"123"];
+    [isoMessage2 addDataElement:@"DE44" withValue:@"Value for DE44"];
+    [isoMessage2 addDataElement:@"DE105" withValue:@"This is the value for DE105"];
 
-    NSString *theBuiltMessage2 = [isoMessage2 buildIsoMessage:nil];
+    NSString *theBuiltMessage2 = [isoMessage2 buildIsoMessage];
     NSLog(@"Built message:\n%@", theBuiltMessage2);
 
     // Example of usage #3
@@ -62,7 +62,8 @@
             continue;
         }
         
-        NSLog(@"%@:%@", elementName, ((ISODataElement *)[isoMessage3.dataElements objectForKey:elementName]).value);
+        ISODataElement *dataElement = [isoMessage3.dataElements objectForKey:elementName];
+        NSLog(@"%@:%@", elementName, dataElement.value);
     }
     
     // Example of usage #4
@@ -75,7 +76,8 @@
             continue;
         }
         
-        NSLog(@"%@:%@", elementName, ((ISODataElement *)[isoMessage4.dataElements objectForKey:elementName]).value);
+        ISODataElement *dataElement = [isoMessage4.dataElements objectForKey:elementName];
+        NSLog(@"%@:%@", elementName, dataElement.value);
     }
     
     // Example of usage #5
@@ -101,7 +103,8 @@
     ISOMessage *isoMessage6 = [[ISOMessage alloc] initWithCustomIsoMessage:@"012703000800000000000501000000000000001000001" configFileName:@"customisoconfig" customMTIFileName:@"customisoMTI"];
     
     for (id elementName in isoMessage6.dataElements) {
-        NSLog(@"%@:%@", elementName, ((ISODataElement *)[isoMessage6.dataElements objectForKey:elementName]).value);
+        ISODataElement *dataElement = [isoMessage6.dataElements objectForKey:elementName];
+        NSLog(@"%@:%@", elementName, dataElement.value);
     }
     
     // Example of usage #7
@@ -110,7 +113,8 @@
     ISOMessage *isoMessage7 = [[ISOMessage alloc] initWithCustomIsoMessageAndHeader:@"ISO012703000800000000000501000000000000001000001" configFileName:@"customisoconfig" customMTIFileName:@"customisoMTI"];
     
     for (id elementName in isoMessage7.dataElements) {
-        NSLog(@"%@:%@", elementName, ((ISODataElement *)[isoMessage7.dataElements objectForKey:elementName]).value);
+        ISODataElement *dataElement = [isoMessage7.dataElements objectForKey:elementName];
+        NSLog(@"%@:%@", elementName, dataElement.value);
     }
     
     return YES;

@@ -17,10 +17,12 @@
 
 - (id)initWithBinaryString:(NSString *)binaryString;
 - (id)initWithHexString:(NSString *)hexString;
+- (id)initWithGivenDataElements:(NSArray *)dataElements;
 - (id)initWithGivenDataElements:(NSArray *)dataElements configFileName:(NSString *)configFileName;
 
 - (NSString *)bitmapAsBinaryString;
 - (NSString *)bitmapAsHexString;
+- (NSArray *)dataElementsInBitmap;
 - (NSArray *)dataElementsInBitmap:(NSString *)customConfigFileName;
 
 @end

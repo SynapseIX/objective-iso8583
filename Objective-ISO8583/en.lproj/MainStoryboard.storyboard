@@ -1,43 +1,43 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" promptedForUpgradeToXcode5="NO" initialViewController="2">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
+        <deployment identifier="iOS"/>
+        <development version="5000" identifier="xcode"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="5">
             <objects>
                 <viewController id="2" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="w3O-c6-6kj"/>
+                        <viewControllerLayoutGuide type="bottom" id="TcB-td-KHQ"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="3">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zRD-Fe-bBU">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="225" id="JbV-xO-gV2"/>
-                                    <constraint firstAttribute="height" constant="56" id="lv4-Q5-xV1"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" image="mindshake.png">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="15" y="20" width="291" height="49"/>
+                                <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="30"/>
+                                <size key="titleShadowOffset" width="1" height="1"/>
+                                <state key="normal" title="JORGETAPIA.NET">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="mindshakeAction:" destination="2" eventType="touchUpInside" id="zfg-KF-gcR"/>
+                                    <action selector="jorgeTapiaAction:" destination="2" eventType="touchUpInside" id="XfD-Ii-s3C"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="281" translatesAutoresizingMaskIntoConstraints="NO" id="J3f-tz-jGT">
-                                <string key="text">Thank you very much for using Objective-ISO8583. An open-source project made by Jorge Tapia and released under the MIT license. Please check the usage examples in the AppDelegate.m file and watch your console log.</string>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="17"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TdX-Un-EhK">
+                                <rect key="frame" x="83" y="404" width="155" height="56"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="155" id="me5-Mt-TnL"/>
+                                    <constraint firstAttribute="width" constant="155" id="B4e-t6-1yA"/>
+                                    <constraint firstAttribute="height" constant="56" id="Geu-h9-883"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" image="github.png">
@@ -51,17 +51,22 @@
                                     <action selector="githubAction:" destination="2" eventType="touchUpInside" id="b46-xJ-vos"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="281" translatesAutoresizingMaskIntoConstraints="NO" id="J3f-tz-jGT">
+                                <rect key="frame" x="20" y="171" width="279" height="137.5"/>
+                                <string key="text">Thank you very much for using Objective-ISO8583. An open-source project made by Jorge Tapia and released under the MIT license. Please check the usage examples in the AppDelegate.m file and watch your console log.</string>
+                                <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.75294117647058822" green="0.31764705882352939" blue="0.1764705882352941" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="J3f-tz-jGT" firstAttribute="centerY" secondItem="3" secondAttribute="centerY" type="default" id="B36-2K-r7a"/>
-                            <constraint firstItem="TdX-Un-EhK" firstAttribute="top" secondItem="J3f-tz-jGT" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Vq8-nC-K50"/>
-                            <constraint firstItem="J3f-tz-jGT" firstAttribute="top" secondItem="zRD-Fe-bBU" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="f0s-Ip-exX"/>
-                            <constraint firstItem="zRD-Fe-bBU" firstAttribute="centerX" secondItem="J3f-tz-jGT" secondAttribute="centerX" type="default" id="fP1-CD-HRg"/>
-                            <constraint firstItem="zRD-Fe-bBU" firstAttribute="top" secondItem="3" secondAttribute="top" constant="20" symbolic="YES" type="default" id="hIX-1e-lWp"/>
-                            <constraint firstItem="J3f-tz-jGT" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="jGb-Fk-zvY"/>
-                            <constraint firstAttribute="bottom" secondItem="TdX-Un-EhK" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="vMx-3n-Iln"/>
-                            <constraint firstItem="J3f-tz-jGT" firstAttribute="centerX" secondItem="TdX-Un-EhK" secondAttribute="centerX" type="default" id="ynV-rc-Wfg"/>
+                            <constraint firstAttribute="centerX" secondItem="TdX-Un-EhK" secondAttribute="centerX" constant="-0.5" id="2ou-ws-4to"/>
+                            <constraint firstAttribute="centerY" secondItem="J3f-tz-jGT" secondAttribute="centerY" id="Cuf-j6-ziK"/>
+                            <constraint firstAttribute="centerX" secondItem="zRD-Fe-bBU" secondAttribute="centerX" constant="-0.5" id="NVC-m8-kyh"/>
+                            <constraint firstAttribute="centerX" secondItem="J3f-tz-jGT" secondAttribute="centerX" id="doR-MU-WUp"/>
+                            <constraint firstItem="zRD-Fe-bBU" firstAttribute="top" secondItem="w3O-c6-6kj" secondAttribute="bottom" id="fXb-vP-0vb"/>
+                            <constraint firstItem="TcB-td-KHQ" firstAttribute="top" secondItem="TdX-Un-EhK" secondAttribute="bottom" constant="20" id="uKz-3e-kEk"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -71,20 +76,7 @@
     </scenes>
     <resources>
         <image name="github.png" width="575" height="213"/>
-        <image name="mindshake.png" width="450" height="113"/>
     </resources>
-    <classes>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="ViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="githubAction:"/>
-                <relationship kind="action" name="mindshakeAction:"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

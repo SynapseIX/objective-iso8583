@@ -26,12 +26,19 @@
 - (BOOL)useCustomConfigurationFile:(NSString *)customConfigurationFileName andCustomMTIFileName:(NSString *)customMTIFileName;
 
 - (BOOL)setMTI:(NSString *)mti;
+
+- (BOOL)addDataElement:(NSString *)elementName withValue:(NSString *)value;
 - (BOOL)addDataElement:(NSString *)elementName withValue:(NSString *)value configFileName:(NSString *)configFileName;
+
 - (NSString *)getHexBitmap1;
 - (NSString *)getBinaryBitmap1;
 - (NSString *)getHexBitmap2;
 - (NSString *)getBinaryBitmap2;
+
+- (NSString *)buildIsoMessage;
 - (NSString *)buildIsoMessage:(NSString *)customConfigFileName;
+
+- (NSString *)buildIsoMessageWithISOHeader;
 - (NSString *)buildIsoMessageWithISOHeader:(NSString *)customConfigFileName;
 
 @end

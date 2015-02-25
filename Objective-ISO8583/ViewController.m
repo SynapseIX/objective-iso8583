@@ -26,12 +26,12 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)mindshakeAction:(id)sender {
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://mindshake.net"]];
+- (IBAction)jorgeTapiaAction:(id)sender {
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://jorgetapia.net"]];
 }
 
 - (IBAction)githubAction:(id)sender {
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://github.com/profkills/Objective-ISO8583"]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://github.com/mordoskull/Objective-ISO8583"]];
 }
 
 @end
