@@ -75,28 +75,28 @@
                     
                     // validate length of value
                     if (value.length > maxLength) {
-                        NSLog(@"The value length \"%d\" is greater to the provided length \"%@\".", value.length, length);
+                        NSLog(@"The value length \"%lu\" is greater to the provided length \"%@\".", (unsigned long)value.length, length);
                         self = nil;
                         return nil;
                     }
                     
                     // fill with zeroes if needed
                     if (numberOfLengthDigits == 1) {
-                        trueLength = [NSString stringWithFormat:@"%d", value.length];
+                        trueLength = [NSString stringWithFormat:@"%lu", (unsigned long)value.length];
                     }
                     
                     if (numberOfLengthDigits == 2 && value.length < 10) {
-                        trueLength = [NSString stringWithFormat:@"0%d", value.length];
+                        trueLength = [NSString stringWithFormat:@"0%lu", (unsigned long)value.length];
                     } else {
-                        trueLength = [NSString stringWithFormat:@"%d", value.length];
+                        trueLength = [NSString stringWithFormat:@"%lu", (unsigned long)value.length];
                     }
                     
                     if (numberOfLengthDigits == 3 && value.length < 10) {
-                        trueLength = [NSString stringWithFormat:@"00%d", value.length];
+                        trueLength = [NSString stringWithFormat:@"00%lu", (unsigned long)value.length];
                     } else if (numberOfLengthDigits == 3 && value.length >= 10 && value.length < 100) {
-                        trueLength = [NSString stringWithFormat:@"0%d", value.length];
+                        trueLength = [NSString stringWithFormat:@"0%lu", (unsigned long)value.length];
                     } else if (numberOfLengthDigits == 3 && value.length >= 100 && value.length < 1000) {
-                        trueLength = [NSString stringWithFormat:@"%d", value.length];
+                        trueLength = [NSString stringWithFormat:@"%lu", (unsigned long)value.length];
                     }
                     
                     _value = [NSString stringWithFormat:@"%@%@", trueLength, value];
@@ -150,7 +150,7 @@
 - (BOOL) isValidDataType:(NSString *)dataType {
     NSString *pathToDataTypeConfigFile = [[NSBundle mainBundle] pathForResource:@"isodatatypes" ofType:@"plist"];
     NSArray *validDataTypes = [NSArray arrayWithContentsOfFile:pathToDataTypeConfigFile];
-    int index = [validDataTypes indexOfObject:dataType];
+    NSInteger index = [validDataTypes indexOfObject:dataType];
     
     return index > -1;
 }

@@ -407,6 +407,10 @@
     return isoMessage;
 }
 
+- (NSString *)buildIsoMessageWithISOHeader {
+    return [self buildIsoMessageWithISOHeader:nil];
+}
+
 - (NSString *)buildIsoMessageWithISOHeader:(NSString *)customConfigFileName {
     NSMutableString *isoMessage = [NSMutableString string];
     [isoMessage appendString:@"ISO"];
@@ -416,7 +420,7 @@
 }
 
 - (BOOL)isMTIValid:(NSString *)mti {
-    int index = [_validMTIs indexOfObject:mti];
+    NSInteger index = [_validMTIs indexOfObject:mti];
     return index > -1;
 }
 
