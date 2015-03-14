@@ -81,7 +81,7 @@
     
     // Validate that length is correct (multiple of 4)
     if (binaryString.length % 4 != 0) {
-        NSLog(@"Invalid binary string length (%d). It must be multiple of 4.", binaryString.length);
+        NSLog(@"Invalid binary string length (%lu). It must be multiple of 4.", (unsigned long)binaryString.length);
         return nil;
     }
     
@@ -126,7 +126,7 @@
         return string;
     }
     
-    int zeroesNeeded = trueLength - string.length;
+    NSInteger zeroesNeeded = trueLength - string.length;
     NSMutableString *result = [NSMutableString string];
     
     for (int i = 0; i < zeroesNeeded; i++) {
@@ -166,7 +166,7 @@
         return string;
     }
     
-    int spacesNeeded = trueLength - string.length;
+    NSInteger spacesNeeded = trueLength - string.length;
     NSMutableString *blankSpaces = [NSMutableString string];
     
     for (int i = 0; i < spacesNeeded; i++) {
