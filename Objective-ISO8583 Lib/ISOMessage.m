@@ -60,7 +60,11 @@
         NSArray *theValues = [self extractDataElementValuesFromIsoString:dataElementValues withDataElements:[_bitmap dataElementsInBitmap:nil]];
         
         for (int i = 1; i < [_bitmap dataElementsInBitmap:nil].count; i++) {
-            [self addDataElement:[_bitmap dataElementsInBitmap:nil][i] withValue:theValues[i - 1] configFileName:nil];
+            if (_hasSecondaryBitmap) {
+                [self addDataElement:[_bitmap dataElementsInBitmap:nil][i] withValue:theValues[i - 1] configFileName:nil];
+            } else {
+                [self addDataElement:[_bitmap dataElementsInBitmap:nil][i] withValue:theValues[i] configFileName:nil];
+            }
         }
         
         _usesCustomConfiguration = NO;
